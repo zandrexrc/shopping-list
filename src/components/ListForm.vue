@@ -56,6 +56,7 @@ export default Vue.extend({
     listId: 3,
     listName: '',
     listNameRules: [
+        // eslint-disable-next-line  @typescript-eslint/no-explicit-any
         (value: any) => !!value || 'Required',
     ],
   }),

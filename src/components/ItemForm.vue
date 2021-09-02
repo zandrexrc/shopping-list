@@ -69,10 +69,13 @@ export default Vue.extend({
     itemName: '',
     itemPrice: '',
     itemNameRules: [
+        // eslint-disable-next-line  @typescript-eslint/no-explicit-any
         (value: any) => !!value || 'Required',
     ],
     itemPriceRules: [
+        // eslint-disable-next-line  @typescript-eslint/no-explicit-any
         (value: any) => !!value || 'Required',
+        // eslint-disable-next-line  @typescript-eslint/no-explicit-any
         (value: any) => !isNaN(value) || 'Must be a valid number',
     ],
   }),
