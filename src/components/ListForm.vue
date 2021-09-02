@@ -18,6 +18,7 @@
                             :rules="listNameRules"
                             hide-details="auto"
                             required
+                            @keyup.enter="handleSubmit"
                         ></v-text-field>
                     </v-row>
                 </v-container>

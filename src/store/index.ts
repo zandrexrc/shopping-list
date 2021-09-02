@@ -84,7 +84,7 @@ export default new Vuex.Store({
   getters: {
     getActiveListName(state) {
       const activeList = state.lists.find(list => list.id === state.activeListId);
-      return activeList?.name;
+      return activeList ? activeList.name : '';
     },
 
     getActiveListItems(state) {
@@ -173,6 +173,7 @@ export default new Vuex.Store({
     addList(context, newList) {
       context.commit('toggleListForm');
       context.commit('addList', newList);
+      context.commit('setActiveListId', newList.id);
     },
 
     deleteList(context, listId) {

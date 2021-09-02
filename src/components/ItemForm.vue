@@ -7,7 +7,7 @@
         >
         <v-card>
             <v-card-title>
-                <span class="text-h5">Create item</span>
+                <span class="text-h5">Add item</span>
             </v-card-title>
             <v-card-text>
                 <v-container>
@@ -18,6 +18,7 @@
                             :rules="itemNameRules"
                             hide-details="auto"
                             required
+                            @keyup.enter="handleSubmit"
                         ></v-text-field>
                     </v-row>
                     <v-row>
@@ -27,6 +28,7 @@
                             :rules="itemPriceRules"
                             hide-details="auto"
                             required
+                            @keyup.enter="handleSubmit"
                         >
                             <span slot="append" v-text="currency"></span>
                         </v-text-field>
