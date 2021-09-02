@@ -1,40 +1,14 @@
 <template>
   <v-app>
+    <!-- SIDEBAR -->
     <v-navigation-drawer
         v-model="drawer"
         app
     >
-        <v-list>
-            <v-subheader>Lists</v-subheader>
-
-            <v-divider class="my-2"></v-divider>
-
-            <v-list-item
-                v-for="list in lists"
-                :key="list.id"
-                link
-                @click="setActiveListId(list.id)"
-            >
-                <v-list-item-content>
-                <v-list-item-title v-text="list.name"></v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
-
-            <v-divider class="my-2"></v-divider>
-
-            <v-list-item 
-                link
-                @click="toggleListForm"
-            >
-                <v-list-item-content>
-                <v-list-item-title>
-                    Create new list
-                </v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
-        </v-list>
+      <Sidebar />
     </v-navigation-drawer>
 
+    <!-- APP BAR -->
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title v-text="getActiveListName"></v-toolbar-title>
@@ -49,9 +23,13 @@
       </v-btn>
     </v-app-bar>
 
-    <List />
+    <!-- MAIN -->
+    <v-main>
+      <List />
+      <ListFooter />
+    </v-main>
 
-    <!-- FORMS -->
+    <!-- MODALS -->
     <ItemForm />
     <ListForm />
 
@@ -62,8 +40,10 @@
 import Vue from 'vue';
 import { mapActions, mapGetters, mapState } from "vuex";
 import ItemForm from './components/ItemForm.vue';
+import List from './components/List.vue';
 import ListForm from './components/ListForm.vue';
-import List from './components/List.vue'
+import ListFooter from './components/ListFooter.vue';
+import Sidebar from './components/Sidebar.vue';
 
 export default Vue.extend({
   name: 'App',
@@ -74,8 +54,10 @@ export default Vue.extend({
 
   components: {
     ItemForm,
-    ListForm,
     List,
+    ListForm,
+    ListFooter,
+    Sidebar,
   },
 
   computed: {
@@ -90,9 +72,7 @@ export default Vue.extend({
 
   methods: {
     ...mapActions([
-      'setActiveListId',
       'toggleItemForm',
-      'toggleListForm',
     ]),
   },
 
