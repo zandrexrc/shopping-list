@@ -76,7 +76,7 @@ export default new Vuex.Store({
     // UI states
     activeListId: 'l1',
     currency: 'NOK',
-    drawer: false,
+    drawer: true,
     itemForm: false,
     listForm: false,
   },

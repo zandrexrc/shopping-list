@@ -45,8 +45,6 @@ export default Vue.extend({
 
     ...mapGetters([
       'getActiveListItems',
-      'calcTotalPrice',
-      'calcUnpaidPrice',
     ]),
   },
 
